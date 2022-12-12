@@ -80,7 +80,9 @@ app.post("/login",async(req,res)=>{
 })
 app.use(authenticate)
 app.use("/todos", todoRouter)
-app.listen(process.env.port, async () => {
+
+const PORT=process.env.PORT||8080
+app.listen(PORT, async () => {
     try {
         await connection
         console.log(`listening on http://localhost:${process.env.port}`)
